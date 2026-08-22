@@ -27,8 +27,29 @@ Chaque script ici suit les mêmes règles maison : un mode `-SelfTest` intégré
 - **Self-testés** — la plupart des scripts embarquent un mode `-SelfTest` (ou équivalent) : des dizaines d'assertions internes qui confirment que les binaires, cmdlets et fonctions requis fonctionnent *avant* de toucher au système.
 - **Score transparent** — les statuts de santé/sécurité reposent toujours sur un seuil documenté et explicite. Pas de boîte noire "fais-moi confiance."
 - **Bilingue là où ça compte** — le français et l'anglais sont tous les deux traités sérieusement ; la logique de détection qui lit la sortie système (DISM, SFC...) est vérifiée dans les deux langues, pas seulement en anglais.
-- **Signés** — les scripts sont signés numériquement via un certificat de signature de code personnel là où la diffusion le justifie.
+- **Signés là où c'est indiqué** — certains scripts portent un certificat de signature de code personnel auto-signé (vérifiable en bas du `.ps1`, présence d'un bloc `SIG # Begin signature block`) ; d'autres ne sont pas signés du tout. Dans les deux cas, voir ci-dessous ce que ça change concrètement au lancement.
 - **Conscients des droits admin, pas avides d'admin** — les scripts qui ont besoin d'élévation l'exigent explicitement ; aucun ne s'auto-élève silencieusement.
+
+---
+
+### 🔓 Lancer un script téléchargé
+
+N'importe quel `.ps1` téléchargé depuis ces repos sera marqué par Windows comme provenant de « la zone Internet » (le Mark of the Web). Sous la politique d'exécution courante `RemoteSigned`, cette marque bloque l'exécution du script — **qu'il soit signé ou non** :
+
+- **Les scripts signés** ici utilisent un certificat personnel auto-signé. Sa racine de confiance n'est pas installée sur ta machine — contrairement à un certificat émis par une autorité de certification publique, il ne fera donc pas considérer le fichier comme provenant d'un « éditeur de confiance » par Windows. La signature prouve surtout que le fichier n'a pas été modifié après que je l'ai signé, pas que ta machine doit lui faire confiance par défaut.
+- **Les scripts non signés** subissent le même blocage lié à la zone Internet, pour la raison plus simple qu'il n'y a même pas de certificat à essayer d'approuver.
+
+La correction est identique dans les deux cas :
+
+```powershell
+# Option A - retirer le marqueur "telecharge depuis Internet" (une seule fois, permanent)
+Unblock-File .\nom-du-script.ps1
+
+# Option B - contourner la politique pour un seul lancement, sans toucher au fichier
+powershell -ExecutionPolicy Bypass -File .\nom-du-script.ps1
+```
+
+`Unblock-File` retire uniquement le marqueur sur ce fichier précis — ça ne modifie ni la politique d'exécution du système, ni aucun autre script. Lis un script avant de le débloquer et de le lancer, surtout en tant qu'Administrateur.
 
 ---
 
