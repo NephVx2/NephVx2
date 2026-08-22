@@ -39,7 +39,7 @@ N'importe quel `.ps1` téléchargé depuis ces repos sera marqué par Windows co
 - **Les scripts signés** ici utilisent un certificat personnel auto-signé. Sa racine de confiance n'est pas installée sur ta machine — contrairement à un certificat émis par une autorité de certification publique, il ne fera donc pas considérer le fichier comme provenant d'un « éditeur de confiance » par Windows. La signature prouve surtout que le fichier n'a pas été modifié après que je l'ai signé, pas que ta machine doit lui faire confiance par défaut.
 - **Les scripts non signés** subissent le même blocage lié à la zone Internet, pour la raison plus simple qu'il n'y a même pas de certificat à essayer d'approuver.
 
-La correction est identique dans les deux cas :
+La correction est identique dans les deux cas — choisis celle qui te convient :
 
 ```powershell
 # Option A - retirer le marqueur "telecharge depuis Internet" (une seule fois, permanent)
@@ -49,7 +49,9 @@ Unblock-File .\nom-du-script.ps1
 powershell -ExecutionPolicy Bypass -File .\nom-du-script.ps1
 ```
 
-`Unblock-File` retire uniquement le marqueur sur ce fichier précis — ça ne modifie ni la politique d'exécution du système, ni aucun autre script. Lis un script avant de le débloquer et de le lancer, surtout en tant qu'Administrateur.
+**Option C — sans PowerShell :** clic droit sur le fichier `.ps1` → *Propriétés* → dans l'onglet *Général*, coche **"Débloquer"** à côté de la mention de sécurité ("Ce fichier provient d'un autre ordinateur...") → *OK*. Ça fait exactement la même chose que `Unblock-File`, juste depuis l'explorateur de fichiers.
+
+`Unblock-File` (ou la case ci-dessus) retire uniquement le marqueur sur ce fichier précis — ça ne modifie ni la politique d'exécution du système, ni aucun autre script. Lis un script avant de le débloquer et de le lancer, surtout en tant qu'Administrateur.
 
 ---
 
