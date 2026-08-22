@@ -39,7 +39,7 @@ Any `.ps1` you download from these repos will be tagged by Windows as coming fro
 - **Signed scripts** here use a personal, self-signed certificate. Its trust root isn't installed on your machine, so — unlike a certificate from a public certificate authority — it won't make Windows treat the file as coming from a "trusted publisher." The signature mainly proves the file wasn't altered after I signed it, not that your machine should trust it by default.
 - **Unsigned scripts** hit the same Internet-zone block, for the simpler reason that there's no certificate to even attempt trusting.
 
-The fix is identical in both cases:
+The fix is identical in both cases — pick whichever you're comfortable with:
 
 ```powershell
 # Option A - remove the "downloaded from the Internet" flag (one-time, permanent)
@@ -49,7 +49,9 @@ Unblock-File .\script-name.ps1
 powershell -ExecutionPolicy Bypass -File .\script-name.ps1
 ```
 
-`Unblock-File` only clears the flag on that specific file — it doesn't change your system's execution policy or affect any other script. Read a script before unblocking and running it, especially as Administrator.
+**Option C — no PowerShell needed:** right-click the `.ps1` file → *Properties* → on the *General* tab, check **"Unblock"** next to the security notice ("This file came from another computer...") → *OK*. This does exactly the same thing as `Unblock-File`, just through the file explorer.
+
+`Unblock-File` (or the checkbox above) only clears the flag on that specific file — it doesn't change your system's execution policy or affect any other script. Read a script before unblocking and running it, especially as Administrator.
 
 ---
 
