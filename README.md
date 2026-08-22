@@ -27,8 +27,29 @@ Every script here follows the same house rules: a built-in `-SelfTest` mode that
 - **Self-tested** — most scripts ship with a `-SelfTest` (or equivalent) mode: dozens of internal assertions confirming required binaries, cmdlets, and functions all work *before* anything touches your system.
 - **Transparent scoring** — health/security statuses are always backed by a documented, explicit threshold. No black-box "trust me."
 - **Bilingual where it matters** — French and English are both first-class; detection logic that reads system output (DISM, SFC...) is checked against both languages, not just English.
-- **Signed** — scripts are digitally signed via a personal code-signing certificate where distribution warrants it.
+- **Signed where noted** — some scripts carry a personal, self-signed code-signing certificate (check the bottom of the `.ps1` for a `SIG # Begin signature block`); others aren't signed at all. Either way, see below for what that means when you run one.
 - **Admin-aware, not admin-hungry** — scripts that need elevation require it explicitly; none of them silently self-elevate.
+
+---
+
+### 🔓 Running a downloaded script
+
+Any `.ps1` you download from these repos will be tagged by Windows as coming from "the Internet zone" (the Mark of the Web). Under the common `RemoteSigned` execution policy, that tag blocks the script from running — **whether or not it's signed**:
+
+- **Signed scripts** here use a personal, self-signed certificate. Its trust root isn't installed on your machine, so — unlike a certificate from a public certificate authority — it won't make Windows treat the file as coming from a "trusted publisher." The signature mainly proves the file wasn't altered after I signed it, not that your machine should trust it by default.
+- **Unsigned scripts** hit the same Internet-zone block, for the simpler reason that there's no certificate to even attempt trusting.
+
+The fix is identical in both cases:
+
+```powershell
+# Option A - remove the "downloaded from the Internet" flag (one-time, permanent)
+Unblock-File .\script-name.ps1
+
+# Option B - bypass the policy for a single run, without touching the file
+powershell -ExecutionPolicy Bypass -File .\script-name.ps1
+```
+
+`Unblock-File` only clears the flag on that specific file — it doesn't change your system's execution policy or affect any other script. Read a script before unblocking and running it, especially as Administrator.
 
 ---
 
