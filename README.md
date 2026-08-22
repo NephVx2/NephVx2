@@ -1,5 +1,7 @@
 # Hey, I'm Nephren 👋
 
+🇫🇷 [Version française](README_FRENCH.md)
+
 Bonjour à tous ; hello everyone. I build PowerShell tools for Windows 11 — security audits, privacy hardening, and system maintenance — for people who want to know *exactly* what a script touched on their machine, not just trust that it "did something."
 
 Every script here follows the same house rules: a built-in `-SelfTest` mode that validates the script's own logic before it ever runs for real, no unattended auto-elevation, and code signing where it matters. If a script tells you your system is healthy, it's because a documented threshold said so — not a hunch.
