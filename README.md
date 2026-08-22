@@ -16,9 +16,9 @@ Every script here follows the same house rules: a built-in `-SelfTest` mode that
 | 🩺 [**Windows-Check-Security**](https://github.com/NephVx2/Windows-Check-Security) | Read-only Windows 11 security audit — 22 sections (firewall, BitLocker, Defender, TLS, VBS, certificates...), category-weighted scoring, regression alerts across runs. |
 | 🧹 [**Windows-Preflight-Cleaner**](https://github.com/NephVx2/Windows-Preflight-Cleaner) | Self-contained maintenance script — 46+ system/app caches, logs, temp files and WinSxS via DISM, DNS flush, Recycle Bin. Dry-run mode included. |
 | 🔒 [**Harden-TLS**](https://github.com/NephVx2/Harden-TLS) | Your PC still accepts TLS 1.0, deprecated since 2021 — one script closes that door for good, checks itself before touching anything, never rewrites what's already fixed. |
-| 🛰️ [**Windows-Block-Telemetry**](https://github.com/NephVx2/Windows-Block-Telemetry) | Blocks telemetry across Microsoft, AMD, Adobe, Spotify, Brave, Firefox, Google, Discord, Steam and more, sorted by category. |
-| 🦁 [**Brave-debloat**](https://github.com/NephVx2/Brave-debloat) | Interactive cleanup of unnecessary Brave options to tighten security and privacy. |
-| 🧭 [**Toolbox-Commands**](https://github.com/NephVx2/Toolbox-Commands) | A GUI toolbox plus a separate command catalog — drop them in the same folder to launch a wide range of Windows commands from one window. |
+| 🛰️ [**Windows-Block-Telemetry**](https://github.com/NephVx2/Windows-Block-Telemetry) | Blocks telemetry via the hosts file — 228 domains, 15 categories (Microsoft, Edge, Copilot, Adobe, Google, Brave and more). Hard-coded whitelist, dry-run mode, integrity checker. |
+| 🦁 [**Brave-debloat**](https://github.com/NephVx2/Brave-debloat) | Applies ~60 Brave Group Policy settings for privacy and security — backup/restore, conflict detection, HTML reporting, self-test suite. |
+| 🧭 [**Toolbox-Commands**](https://github.com/NephVx2/Toolbox-Commands) | Point-and-click access to 145 Windows commands across 9 categories — search, favorites, confirmation prompts on risky commands, 47-assertion self-test. |
 
 ---
 
