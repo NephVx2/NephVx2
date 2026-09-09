@@ -24,7 +24,10 @@ Every script here follows the same house rules: a built-in `-SelfTest` mode that
 
 ### 🎨 Also here
 
-Not PowerShell, but scratched a different itch: [**Spicetify-tui**](https://github.com/NephVx2/Spicetify-tui) — a terminal-style Spicetify theme for Spotify, panel labels, ASCII banner, TokyoNight by default.
+Not PowerShell, but scratched a different itch:
+
+- 🦅 [**fastfetch-ricing**](https://github.com/NephVx2/fastfetch-ricing) — a Fastfetch config for Windows 11 / PowerShell Sixel terminals, grouped Hardware/Software/Session/Uptime sections, progress bars, and a custom logo slot.
+- 🎧 [**Spicetify-tui**](https://github.com/NephVx2/Spicetify-tui) — a terminal-style Spicetify theme for Spotify, panel labels, ASCII banner, TokyoNight by default.
 
 ---
 
