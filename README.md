@@ -12,7 +12,7 @@ Every script here follows the same house rules: a built-in `-SelfTest` mode that
 
 | Repository | What it does |
 |---|---|
-| 🌶️ [**SpicyCheck-v7.2**](https://github.com/NephVx2/SpicyCheck-v7.2) | One-command Windows 11 tune-up — 16-point health diagnostic, cleanup, bilingual FR/EN DISM/SFC/BCD repair, disk optimization, HTML dashboard. 36-assertion self-test. |
+| 🌶️ [**SpicyCheck**](https://github.com/NephVx2/SpicyCheck) | One-command Windows 11 tune-up — 16-point health diagnostic, cleanup, bilingual FR/EN DISM/SFC/BCD repair, disk optimization, HTML dashboard. 36-assertion self-test. |
 | 🩺 [**Windows-Check-Security**](https://github.com/NephVx2/Windows-Check-Security) | Read-only Windows 11 security audit — 22 sections (firewall, BitLocker, Defender, TLS, VBS, certificates...), category-weighted scoring, regression alerts across runs. |
 | 🧹 [**Windows-Preflight-Cleaner**](https://github.com/NephVx2/Windows-Preflight-Cleaner) | Self-contained maintenance script — 46+ system/app caches, logs, temp files and WinSxS via DISM, DNS flush, Recycle Bin. Dry-run mode included. |
 | 🔒 [**Harden-TLS**](https://github.com/NephVx2/Harden-TLS) | Your PC still accepts TLS 1.0, deprecated since 2021 — one script closes that door for good, checks itself before touching anything, never rewrites what's already fixed. |
