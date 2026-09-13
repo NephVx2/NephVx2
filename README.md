@@ -13,7 +13,7 @@ Every script here follows the same house rules: a built-in `-SelfTest` mode that
 | Repository | What it does |
 |---|---|
 | 🌶️ [**SpicyCheck**](https://github.com/NephVx2/SpicyCheck) | One-command Windows 11 tune-up — 16-point health diagnostic, cleanup, bilingual FR/EN DISM/SFC/BCD repair, disk optimization, HTML dashboard. 36-assertion self-test. |
-| 🩺 [**Windows-Check-Security**](https://github.com/NephVx2/Windows-Check-Security) | Read-only Windows 11 security audit — 22 sections (firewall, BitLocker, Defender, TLS, VBS, certificates...), category-weighted scoring, regression alerts across runs. |
+| 🩺 [**Check-Security**](https://github.com/NephVx2/Check-Security) | Read-only Windows 11 security audit — 22 sections (firewall, BitLocker, Defender, TLS, VBS, certificates...), category-weighted scoring, regression alerts across runs. |
 | 🧹 [**Windows-Preflight-Cleaner**](https://github.com/NephVx2/Windows-Preflight-Cleaner) | Self-contained maintenance script — 46+ system/app caches, logs, temp files and WinSxS via DISM, DNS flush, Recycle Bin. Dry-run mode included. |
 | 🔒 [**Harden-TLS**](https://github.com/NephVx2/Harden-TLS) | Your PC still accepts TLS 1.0, deprecated since 2021 — one script closes that door for good, checks itself before touching anything, never rewrites what's already fixed. |
 | 🛰️ [**Windows-Block-Telemetry**](https://github.com/NephVx2/Windows-Block-Telemetry) | Blocks telemetry via the hosts file — 228 domains, 15 categories (Microsoft, Edge, Copilot, Adobe, Google, Brave and more). Hard-coded whitelist, dry-run mode, integrity checker. |
