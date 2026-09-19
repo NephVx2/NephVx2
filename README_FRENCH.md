@@ -18,7 +18,7 @@ Chaque script ici suit les mêmes règles maison : un mode `-SelfTest` intégré
 | 🛰️ [**Block-Telemetry**](https://github.com/NephVx2/Block-Telemetry) | Bloque la télémétrie via le fichier hosts — 228 domaines, 15 catégories (Microsoft, Edge, Copilot, Adobe, Google, Brave et plus). Liste blanche codée en dur, mode simulation, vérificateur d'intégrité. Self-test à 8 assertions. |
 | 🦁 [**Brave-Debloat**](https://github.com/NephVx2/Brave-Debloat) | Applique 53 stratégies de groupe Brave pour la confidentialité et la sécurité — sauvegarde/restauration, détection de conflits, rapport HTML. Self-test à 21 assertions. |
 | 🧹 [**Windows-Preflight-Cleaner**](https://github.com/NephVx2/Windows-Preflight-Cleaner) | Script de maintenance autonome — 46+ caches système/applicatifs, logs, fichiers temporaires et WinSxS via DISM, purge DNS, corbeille. Mode simulation (dry-run). Self-test à 17 assertions. |
-| 🧭 [**Toolbox-SystemCommands**](https://github.com/NephVx2/Toolbox-SystemCommands) | Accès en un clic à 145 commandes Windows réparties en 9 catégories — recherche, favoris, confirmation avant les commandes sensibles, self-test à 47 assertions. |
+| 🧭 [**Toolbox-SystemCommands**](https://github.com/NephVx2/Toolbox-SystemCommands) | Accès en un clic à 145 commandes Windows réparties en 9 catégories — recherche, favoris, confirmation avant les commandes sensibles, self-test à 47 assertions. Livré en deux versions autonomes, anglaise et française. |
 
 ---
 
@@ -61,6 +61,36 @@ powershell -ExecutionPolicy Bypass -File .\nom-du-script.ps1
 **Option C — sans PowerShell :** clic droit sur le fichier `.ps1` → *Propriétés* → dans l'onglet *Général*, coche **"Débloquer"** à côté de la mention de sécurité ("Ce fichier provient d'un autre ordinateur...") → *OK*. Ça fait exactement la même chose que `Unblock-File`, juste depuis l'explorateur de fichiers.
 
 `Unblock-File` (ou la case ci-dessus) retire uniquement le marqueur sur ce fichier précis — ça ne modifie ni la politique d'exécution du système, ni aucun autre script. Lis un script avant de le débloquer et de le lancer, surtout en tant qu'Administrateur.
+
+---
+
+### 🖱️ Raccourci bureau pour les scripts utilisés régulièrement
+
+La plupart de ces scripts se lancent ponctuellement depuis une invite PowerShell. [**Toolbox-SystemCommands**](https://github.com/NephVx2/Toolbox-SystemCommands) est différent — c'est une interface graphique que tu peux ouvrir plusieurs fois par jour, donc un vrai raccourci par double-clic vaut mieux que de faire clic droit sur le `.ps1` puis "Exécuter avec PowerShell" à chaque fois (ce qui fait clignoter brièvement une fenêtre console et la laisse ouverte derrière l'interface).
+
+1. Clic droit sur le Bureau → **Nouveau → Raccourci**.
+2. Dans l'emplacement, coller une des deux commandes ci-dessous (adapter le chemin du script à l'endroit où tu l'as placé) — choisir celle qui correspond à ce qui est installé sur la machine :
+
+   **Windows PowerShell 5.1** (intégré à toute installation Windows) :
+   ```
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Scripts\Toolbox\Toolbox-SystemCommands.ps1"
+   ```
+
+   **PowerShell 7+** (uniquement si installé séparément) :
+   ```
+   pwsh.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Scripts\Toolbox\Toolbox-SystemCommands.ps1"
+   ```
+
+   | Paramètre | Pourquoi |
+   |---|---|
+   | `-NoProfile` | Ignore le chargement de ton profil PowerShell, donc le script démarre plus vite et n'est pas affecté par un contenu personnalisé dans ce profil |
+   | `-ExecutionPolicy Bypass` | S'applique uniquement à ce processus — permet au script de s'exécuter même si la politique d'exécution par défaut du système le bloquerait sinon, sans modifier cette politique à l'échelle de la machine |
+   | `-WindowStyle Hidden` | Supprime la fenêtre console de ce premier processus, pour que seule l'interface du script apparaisse |
+
+3. Nommer le raccourci, puis terminer.
+4. *(Optionnel)* Clic droit sur le nouveau raccourci → **Propriétés** → **Changer d'icône...** pour choisir quelque chose de plus reconnaissable que l'icône PowerShell par défaut.
+
+Le même principe de raccourci fonctionne pour n'importe quel autre script ici que tu comptes lancer régulièrement par double-clic — il suffit de pointer `-File` vers ce script à la place. Note que `-WindowStyle Hidden` masque uniquement la fenêtre console ; il ne supprime jamais une invite d'élévation UAC pour les scripts nécessitant les droits admin.
 
 ---
 
