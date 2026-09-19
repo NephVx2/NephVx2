@@ -18,7 +18,7 @@ Every script here follows the same house rules: a built-in `-SelfTest` mode that
 | 🛰️ [**Block-Telemetry**](https://github.com/NephVx2/Block-Telemetry) | Blocks telemetry via the hosts file — 228 domains, 15 categories (Microsoft, Edge, Copilot, Adobe, Google, Brave and more). Hard-coded whitelist, dry-run mode, integrity checker. 8-assertion self-test. |
 | 🦁 [**Brave-Debloat**](https://github.com/NephVx2/Brave-Debloat) | Applies 53 Brave Group Policy settings for privacy and security — backup/restore, conflict detection, HTML reporting. 21-assertion self-test. |
 | 🧹 [**Windows-Preflight-Cleaner**](https://github.com/NephVx2/Windows-Preflight-Cleaner) | Self-contained maintenance script — 46+ system/app caches, logs, temp files and WinSxS via DISM, DNS flush, Recycle Bin. Dry-run mode. 17-assertion self-test. |
-| 🧭 [**Toolbox-SystemCommands**](https://github.com/NephVx2/Toolbox-SystemCommands) | Point-and-click access to 145 Windows commands across 9 categories — search, favorites, confirmation prompts on risky commands, 47-assertion self-test. |
+| 🧭 [**Toolbox-SystemCommands**](https://github.com/NephVx2/Toolbox-SystemCommands) | Point-and-click access to 145 Windows commands across 9 categories — search, favorites, confirmation prompts on risky commands, 47-assertion self-test. Ships as separate English and French versions, each self-contained. |
 
 ---
 
@@ -61,6 +61,36 @@ powershell -ExecutionPolicy Bypass -File .\script-name.ps1
 **Option C — no PowerShell needed:** right-click the `.ps1` file → *Properties* → on the *General* tab, check **"Unblock"** next to the security notice ("This file came from another computer...") → *OK*. This does exactly the same thing as `Unblock-File`, just through the file explorer.
 
 `Unblock-File` (or the checkbox above) only clears the flag on that specific file — it doesn't change your system's execution policy or affect any other script. Read a script before unblocking and running it, especially as Administrator.
+
+---
+
+### 🖱️ Desktop shortcut for scripts you use often
+
+Most of these are one-off scripts you run from a PowerShell prompt when needed. [**Toolbox-SystemCommands**](https://github.com/NephVx2/Toolbox-SystemCommands) is different — it's a GUI you might open several times a day, so it's worth a proper double-click shortcut instead of right-clicking the `.ps1` and choosing "Run with PowerShell" every time (which briefly flashes a console window and leaves it open behind the GUI).
+
+1. Right-click the Desktop → **New → Shortcut**.
+2. For the location, paste one of the two commands below (adjust the script path to wherever you placed it) — pick whichever matches what's installed on the machine:
+
+   **Windows PowerShell 5.1** (built into every Windows install):
+   ```
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Scripts\Toolbox\Toolbox-SystemCommands.ps1"
+   ```
+
+   **PowerShell 7+** (only if installed separately):
+   ```
+   pwsh.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Scripts\Toolbox\Toolbox-SystemCommands.ps1"
+   ```
+
+   | Flag | Why |
+   |---|---|
+   | `-NoProfile` | Skips loading your PowerShell profile, so the script starts faster and isn't affected by anything custom in it |
+   | `-ExecutionPolicy Bypass` | Applies only to this one process — lets the script run even if the system's default execution policy would otherwise block it, without changing that policy machine-wide |
+   | `-WindowStyle Hidden` | Suppresses that first process's own console window, so only the script's GUI appears |
+
+3. Name the shortcut, then finish.
+4. *(Optional)* Right-click the new shortcut → **Properties** → **Change Icon...** for something more recognizable than the default PowerShell icon.
+
+The same shortcut pattern works for any other script here you plan to launch by double-click regularly — just point `-File` at that script instead. Note that `-WindowStyle Hidden` only hides the console window; it never suppresses a UAC elevation prompt for scripts that need admin rights.
 
 ---
 
