@@ -60,6 +60,14 @@ powershell -ExecutionPolicy Bypass -File .\nom-du-script.ps1
 
 **Option C — sans PowerShell :** clic droit sur le fichier `.ps1` → *Propriétés* → dans l'onglet *Général*, coche **"Débloquer"** à côté de la mention de sécurité ("Ce fichier provient d'un autre ordinateur...") → *OK*. Ça fait exactement la même chose que `Unblock-File`, juste depuis l'explorateur de fichiers.
 
+Si PowerShell indique plutôt que l'exécution de scripts est désactivée sur ce système (la politique par défaut de Windows est `Restricted`), l'Option B ci-dessus fonctionne quand même telle quelle — elle contourne la politique en vigueur, quelle qu'elle soit, pour ce seul lancement. Pour corriger ça plus durablement, autorise d'abord les scripts pour ton compte (la modification ne s'applique qu'à ce compte, pas à toute la machine) :
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+Toujours bloqué après tout ça ? Voir le [guide pas à pas](https://github.com/NephVx2/Script-blocked-Look-at-this/blob/main/README_POWERSHELL_FRENCH.md) pour un détail plus complet, avertissements SmartScreen/Defender inclus.
+
 `Unblock-File` (ou la case ci-dessus) retire uniquement le marqueur sur ce fichier précis — ça ne modifie ni la politique d'exécution du système, ni aucun autre script. Lis un script avant de le débloquer et de le lancer, surtout en tant qu'Administrateur.
 
 ---
