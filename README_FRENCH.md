@@ -21,7 +21,7 @@ Chaque script ici suit les mêmes règles maison : un mode `-SelfTest` intégré
 | 🛰️ [**Block-Telemetry**](https://github.com/NephVx2/Block-Telemetry) | Bloque la télémétrie via le fichier hosts — 227 domaines, 15 catégories (Microsoft, Edge, Copilot, Adobe, Google, Brave et plus). Liste blanche codée en dur, mode simulation, vérificateur d'intégrité. Self-test à 9 assertions. |
 | 🦁 [**Brave-Debloat**](https://github.com/NephVx2/Brave-Debloat) | Applique 53 stratégies de groupe Brave pour la confidentialité et la sécurité — sauvegarde/restauration, détection de conflits, rapport HTML. Self-test à 21 assertions. |
 | 🧹 [**Windows-Preflight-Cleaner**](https://github.com/NephVx2/Windows-Preflight-Cleaner) | Script de maintenance autonome — 46+ caches système/applicatifs, logs, fichiers temporaires et WinSxS via DISM, purge DNS, corbeille. Mode simulation (dry-run). Self-test à 17 assertions. |
-| 🧭 [**Toolbox-SystemCommands**](https://github.com/NephVx2/Toolbox-SystemCommands) | Accès en un clic à 145 commandes Windows réparties en 9 catégories — recherche, favoris, confirmation avant les commandes sensibles, self-test à 47 assertions. Livré en deux versions autonomes, anglaise et française. |
+| 🧭 [**Toolbox-SystemCommands**](https://github.com/NephVx2/Toolbox-SystemCommands) | Accès en un clic à 157 commandes Windows réparties en 9 catégories — recherche, favoris, confirmation avant les commandes sensibles, self-test à 47 assertions. Livré en deux versions autonomes, anglaise et française. |
 
 ---
 
