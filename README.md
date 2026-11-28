@@ -12,7 +12,7 @@ Every script here follows the same house rules: a built-in `-SelfTest` mode that
 
 | Repository | What it does |
 |---|---|
-| 🌶️ [**SpicyCheck**](https://github.com/NephVx2/SpicyCheck) | One-command Windows 11 tune-up — 16-point health diagnostic, cleanup, bilingual FR/EN DISM/SFC/BCD repair, disk optimization, HTML dashboard. 120-assertion self-test. |
+| 🌶️ [**SpicyCheck**](https://github.com/NephVx2/SpicyCheck) | One-command Windows 11 tune-up — 17-point health diagnostic, cleanup, bilingual FR/EN DISM/SFC/BCD repair, disk optimization, HTML dashboard. 120-assertion self-test. |
 | 🥾 [**Check-Boot**](https://github.com/NephVx2/Check-Boot) | Read-only Windows 10/11 boot-chain audit — BCD, Secure Boot, TPM, UEFI/EFI, boot drivers, BitLocker, WinRE, SMART, VBS/HVCI, across 22 category-weighted checks. Persistent baseline flags drift (boot binary hashes, DBX size) between runs, HTML/JSON/CSV reports. 16-assertion self-test. |
 | 🩺 [**Check-Security**](https://github.com/NephVx2/Check-Security) | Read-only Windows 11 security audit — 27 sections (firewall, BitLocker, Defender, TLS/SCHANNEL, VBS, certificates, shadow copies...) scored with a category-weighted model, tracked across runs with regression alerts, and exported as a searchable HTML dashboard. Section-filterable via `-Category`, 245-assertion self-test included. |
 | 🌐 [**Check-Network**](https://github.com/NephVx2/Check-Network) | Read-only Windows 10/11 network health and security check — gateway latency and packet loss, speed test, DNS (encrypted DNS, leak and bypass detection, optional NextDNS integration), firewall, listening ports, SMB, proxy, root certificates, Wi-Fi. Three sub-scores plus a global score, compared with the previous run, HTML/JSON/CSV reports. 22-assertion self-test. |
